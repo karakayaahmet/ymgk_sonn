@@ -42,9 +42,13 @@
     <div class="row">
       <div class="col-6 form-group">
         <form method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-          <input type="file" name="image" class="form-control-file"> <br>
-          <input type="submit" value="Yükle">
+          {% csrf_token %}  
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile04" name="image">
+              <label class="custom-file-label" for="inputGroupFile04">Resim Seç</label>
+              <input type="submit" value="Yükle">
+            </div>
         </form>        
 
       </div>
