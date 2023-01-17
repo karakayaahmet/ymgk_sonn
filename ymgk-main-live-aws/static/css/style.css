@@ -1,51 +1,30 @@
 .loader {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
     position: relative;
-    border: 2px solid #FFF;
-    box-sizing: border-box;
-    animation: rotation 2s linear infinite;
+    border: 24px solid;
+    border-color: #fff  transparent #fff transparent;
+    animation : rotate 2s linear infinite;
   }
-  .loader::after,
-  .loader::before {
-    content: '';  
-    box-sizing: border-box;
+  .loader:before,
+  .loader:after {
+    content:"";
+    display: block;
+    border: 24px solid transparent;
+    border-left-color: #fff;
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    border: 2px solid #FF3D00;
-    width: 38px;
-    height: 38px;
-    animation: rotationBack 1.5s linear infinite;
-    transform-origin: center center;
+    left: -24px;
+    top: -24px;
+    animation: prix 1s infinite ease-in;
+    transform-origin: 0% 100%;
   }
-  .loader::before {
-    width: 28px;
-    height: 28px;
-    border-color: #FFF;
-    box-sizing: border-box;
-    animation: rotation 1s linear infinite;
+  .loader:before {
+    border-color: transparent #fff transparent transparent;
+    transform-origin: 100% 0%;
+    animation-delay: 0.5s;
   }
-  
-  @keyframes rotation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  } 
-  @keyframes rotationBack {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(-360deg);
-    }
+  @keyframes rotate {
+    100% {transform: rotate(360deg)}
   }
-  
-  
+  @keyframes prix {
+    20% , 80% {transform: rotate(0)}
+    50% {transform: rotate(-90deg)}
+  }
