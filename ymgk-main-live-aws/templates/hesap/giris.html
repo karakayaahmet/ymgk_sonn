@@ -14,8 +14,8 @@
 </head>
 <body style="background:url('/static/img/mermer_arka.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; position: relative">
 <!-- <body style="background-color: #dfe9f5"> -->
-    <div class="container ">
-        <div class="row d-flex align-items-center justify-content-center">
+    <div class="container-fluid  d-block d-sm-none">
+        <div class="row">
             <div class="col-4"my-5>
 
             </div>
@@ -50,6 +50,43 @@
             </div>
         </div>
     </div>
+
+    <div class="container d-none d-sm-block">
+      <div class="row">
+          <div class="col-4"my-5>
+
+          </div>
+          <div class="col-4 p-5 rounded" style="background-color: #eeecdf">
+            <img src="/static/img/mermer_logo.png" alt="Fırat Mermer" class="w-100">
+            <hr>
+              <form method="post">
+                {% if error %}
+                <div class="alert alert-danger">
+                  {{ error }}
+                </div>
+                {% endif %}
+                {% csrf_token %}
+                  <div class="form-group">
+                    <label for="username">Kullanıcı Adı</label>
+                    <input type="text" class="form-control" placeholder="Kullanıcı Adı" name="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Şifre</label>
+                    <input type="password" class="form-control" placeholder="Şifre" name="password">
+                  </div>
+                  <div class="d-flex justify-content-between">
+                  <button type="submit" class="btn btn-outline-primary">Giriş Yap</button>
+                  <a href="{% url 'kayitlar' %}" class="btn btn-outline-success">Kayıt Ol</a>
+                </div>
+                </form>
+
+                
+          </div>
+          <div class="col-4">
+
+          </div>
+      </div>
+  </div>
 
 
     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
