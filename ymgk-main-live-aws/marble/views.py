@@ -10,7 +10,7 @@ def anasayfa(request):
     ad = son_nesne.title
     if request.method == "POST":
 
-        response = """<script>$("#my-spinner").show();</script>"""
+        response = """<script>$("#my-spinner").hide();</script>"""
         yield response
 
         form = ImageForm(request.POST, request.FILES)        
