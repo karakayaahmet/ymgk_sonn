@@ -13,15 +13,13 @@ def anasayfa(request):
     
     if request.method == "POST":
 
-        response = """<script>$("#my-spinner").show();</script>"""
         yield response
 
         form = ImageForm(request.POST, request.FILES)        
         if form.is_valid():
             form.save()
             
-            response = """<script>$("#my-spinner").hide();</script>"""
-            return response
+            return redirect("anasayfa")
          
 
     else:
