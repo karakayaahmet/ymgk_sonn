@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from PIL import Image
-from keras.utils import img_to_array
+from keras.preprocessing.image import img_to_array
 from keras.preprocessing import image
 from tensorflow.python import ops
 from keras.models import load_model
@@ -14,9 +14,21 @@ class Resimler(models.Model):
     image = models.ImageField(upload_to='media/')
     title = models.CharField(max_length=255, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    average_color = models.TextField()
 
     class Meta:
         get_latest_by = 'created_at'
+
+    def save(self, *args, **kwargs):
+        # Open the image file
+        with Image.open(self.image) as img:
+            # Get the average color of the image
+            average_color = img.getcolors(img.size[0]*img.size[1])
+            # convert the color tuple to string to save it in the model
+            average_color = str(average_color)
+            # save the color in the model
+            self.average_color = average_color
+        super().save(*args, **kwargs)
 
     def save(self, *args, **kwargs):
         img = Image.open(self.image)
