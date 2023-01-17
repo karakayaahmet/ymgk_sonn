@@ -8,6 +8,8 @@ def anasayfa(request):
     son_nesne = Resimler.objects.order_by("created_at").last()
     son_resim = son_nesne.image.url
     ad = son_nesne.title
+
+    renk = son_nesne.average_color
     
     if request.method == "POST":
 
@@ -26,5 +28,5 @@ def anasayfa(request):
         form = ImageForm()
 
 
-    return render(request, "marble/anasayfa.html",{"images":son_resim, "form":form, "ad":ad})
+    return render(request, "marble/anasayfa.html",{"images":son_resim, "form":form, "ad":ad,"renk":renk})
 
