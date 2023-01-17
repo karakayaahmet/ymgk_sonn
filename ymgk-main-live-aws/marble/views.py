@@ -9,17 +9,16 @@ def anasayfa(request):
     son_resim = son_nesne.image.url
     ad = son_nesne.title
     if request.method == "POST":
+
+        response = """<script>$("#my-spinner").show();</script>"""
+        yield response
+
         form = ImageForm(request.POST, request.FILES)        
         if form.is_valid():
-
-            response = """<script>$("#my-spinner").show();</script>"""
-            yield response
-
             form.save()
-
-            response = """<script>$("#my-spinner").hide();</script>"""
             
-            return redirect("anasayfa")
+            response = """<script>$("#my-spinner").hide();</script>"""
+            return response
          
 
     else:
