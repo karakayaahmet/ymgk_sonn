@@ -8,9 +8,10 @@ def anasayfa(request):
     son_nesne = Resimler.objects.order_by("created_at").last()
     son_resim = son_nesne.image.url
     ad = son_nesne.title
+    response = """<script>$("#my-spinner").hide();</script>"""
     if request.method == "POST":
 
-        response = """<script>$("#my-spinner").hide();</script>"""
+        response = """<script>$("#my-spinner").show();</script>"""
         yield response
 
         form = ImageForm(request.POST, request.FILES)        
