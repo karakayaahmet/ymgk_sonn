@@ -44,7 +44,8 @@
 
   <div class="container my-5">
     <div class="row">
-      <div class="col-6">
+      
+      <div class="col-sm-12 col-md-8 col-lg-6 p-4">
         <form method="post" enctype="multipart/form-data">
           {% csrf_token %}  
           <!-- <div class="input-group">
@@ -72,8 +73,8 @@
       </div>
 
 
-      <div class="col-6">
-        <div class="accordion" id="myAccordion">
+      <div class="col-sm-12 col-md-8 col-lg-6 p-4">
+        
 
 
           <!-- <div class="accordion-item">
@@ -81,8 +82,10 @@
               <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#content1">Tür Tespiti</button>
             </h2>
             <div id="content1" class="accordion-collapse collapse" data-bs-parent="#myAccordion"> -->
-              <div class="accordion-body">
-                <img src="{{ images }}" width="224px" height="224px"><hr>
+              <div>
+                <img src="{{ images }}" width="224px" height="224px">
+                
+                <hr>
                 
                 Adı: {{ ad }}
                 
@@ -116,7 +119,7 @@
             </div>
           </div> -->
 
-        </div>
+        
       </div>
 
     </div>
