@@ -4,5 +4,5 @@ from .models import Resimler
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Resimler
-        fields = ['image', 'title','average_color', 'created_at']
+        fields = ['image', 'title','average_color']
         
