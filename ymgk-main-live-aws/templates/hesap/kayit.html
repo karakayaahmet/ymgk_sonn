@@ -10,14 +10,11 @@
 
     <title>Kayıt Ol</title>
 </head>
-<body style="background:url('/static/img/mermer_arka.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; position: relative;">
+<body style="background:url('/static/img/mermer_arka.jpg'); background-size: cover; background-repeat:repeat; background-position: center; position: relative;">
 <!-- <body style="background-color: #dfe9f5"> -->
-    <div class="container my-5">
-        <div class="row">
-            <div class="col-4">
-
-            </div>
-            <div class="col-4 p-5 rounded" style="background-color: #eeecdf;">
+    <div class="container d-flex align-items-center justify-content-center h-100 my-5">
+      <div class="col-sm-12 col-md-8 col-lg-6">
+            <div class="p-5 rounded" style="background-color: #eeecdf;">
               <img src="/static/img/mermer_logo.png" alt="Fırat Mermer" class="w-100">
               <hr>
                 <form method="post">
@@ -56,10 +53,7 @@
                     <a href="{% url 'giris' %}" class="btn btn-outline-success">Giriş Yap</a>
                   </div>
                   </form>
-            </div>
-            <div class="col-4">
-
-            </div>
+                </div>
         </div>
     </div>
     
